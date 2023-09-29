@@ -11,6 +11,12 @@ class SmartphoneDB:
         tables = self.db.tables()
         return tables
         
+    def all_smartphone(self, brands):
+        phones = []
+        for brand in brands:
+            table = self.db.table(brand)
+            phones.extend(table.all())
+        return phones
     
     def get_smartphone_by_brand(self, brand):
         """Returns all products by brand"""
@@ -19,7 +25,11 @@ class SmartphoneDB:
     
     def get_smartphone_by_name(self, brand, name):
         """Returns a product by name"""
-        pass
+
+        User = Query()
+        table = self.db.table(brand)
+
+        return table.search(User.name == name)
 
     def get_smartphone_by_price(self, price):
         """Returns a product by price"""
