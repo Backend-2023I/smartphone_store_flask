@@ -29,14 +29,20 @@ def get_all_brands():
 @app.route('/smartphones/<brand>', methods=['GET'])
 def get_smartphone_by_brand(brand):
     """Returns all products by brand"""
-    return db.get_smartphone_by_brand(brand)
+    data = {
+        brand: db.get_smartphone_by_brand(brand)
+    }
+    return data
 
 
 # view smartphone by name
 @app.route('/smartphones/name/<brand>/<name>', methods=['GET'])
 def get_smartphone_by_name(brand, name):
     """Returns a product by name"""
-    data = db.get_smartphone_by_name(brand, name)
+
+    data = {
+        name: db.get_smartphone_by_name(brand, name)
+    }
     return data
 
 
