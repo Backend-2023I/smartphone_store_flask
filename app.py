@@ -9,14 +9,20 @@ db = SmartphoneDB('/home/backend2023I/db.json')
 def get_all_smartphones():
     """Returns all smartphones in the database"""
     brands = list(db.brands())
-    return db.all_smartphone(brands)
+    data = {
+        "products": db.all_smartphone(brands)
+    }
+    return data
 
 
 # view all brands
 @app.route('/smartphones/brands', methods=['GET'])
 def get_all_brands():
     """Returns all brands in the database"""
-    return list(db.brands())
+    data = {
+        "brands": list(db.brands())
+    }
+    return data
 
 
 # view all smartphones by brand
