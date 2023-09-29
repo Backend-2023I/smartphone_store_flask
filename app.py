@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from db import SmartphoneDB
 
 app = Flask(__name__)
-db = SmartphoneDB('backend2023I/db.json')
+db = SmartphoneDB('/home/backend2023I/db.json')
 
 ## view all smartphone
 @app.route('/smartphones', methods=['GET'])
