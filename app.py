@@ -10,26 +10,26 @@ db = SmartphoneDB('db.json')
 @app.route('/smartphones', methods=['GET'])
 def get_all_smartphones():
     """Returns all smartphones in the database"""
-    pass
+    return db.brands()
 
 
 # view all brands
 @app.route('/smartphones/brands', methods=['GET'])
 def get_all_brands():
     """Returns all brands in the database"""
-    pass
+    return list(db.brands())
 
 
 # view all smartphones by brand
 @app.route('/smartphones/<brand>', methods=['GET'])
 def get_smartphone_by_brand(brand):
     """Returns all products by brand"""
-    pass
+    return db.get_smartphone_by_brand(brand)
 
 
 # view smartphone by name
-@app.route('/smartphones/name/<name>', methods=['GET'])
-def get_smartphone_by_name(name):
+@app.route('/smartphones/name/<brand>/<name>', methods=['GET'])
+def get_smartphone_by_name(brand, name):
     """Returns a product by name"""
     pass
 
